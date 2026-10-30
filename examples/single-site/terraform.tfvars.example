@@ -1,0 +1,22 @@
+# Copy to terraform.tfvars and fill in. Alternatively set HUDU_API_HOST / HUDU_API_KEY
+# in the environment and omit hudu_host / hudu_api_key here.
+
+hudu_host    = "https://hudu.example.com"
+hudu_api_key = "your-hudu-api-key"
+
+fortigates = {
+  # Map key must match a provider "fortios" alias (providers.tf) and a module (main.tf).
+  hq = {
+    hostname   = "fw-hq.example.com" # host or URL; scheme is optional
+    token      = "fortigate-rest-api-token"
+    company_id = 42 # Hudu company id for this site/client
+    vdom       = "root"
+    insecure   = false # true only for self-signed certs
+  }
+
+  # branch2 = {
+  #   hostname   = "https://fw-branch2.example.com"
+  #   token      = "..."
+  #   company_id = 43
+  # }
+}
